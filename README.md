@@ -19,3 +19,6 @@
 </p>
 
 <h3 style="font-weight:bold;">의존성(의존관계) 주입 방법 (최신 ver)</h3>
+<h3 style="font-weight:bold;">@RequiredArgsContructor</h3>
+<h3 style="font-weight:bold;">타임리프에서 url 표현식</h3>
+<h3 style="font-weight:bold;">@PathVariable</h3>
