@@ -19,6 +19,58 @@
 </p>
 
 <h3 style="font-weight:bold;">의존성(의존관계) 주입 방법 (최신 ver)</h3>
-<h3 style="font-weight:bold;">@RequiredArgsContructor</h3>
-<h3 style="font-weight:bold;">타임리프에서 url 표현식</h3>
+<p>1. 롬복 이용한 방법</p>
+<p>
+@Component (이 어노테이션을 포함한 어노테이션 ex. @Controller 등도)
+@RequiredArgsConstructor
+public class serviceImpl implements Service {
+  
+  private final Repository repository;
+  
+}
+</p>
+<p>
+ + @RequiredArgsConstructor 는 <br>
+  @Autowired <br>
+  public serviceImpl(Repository repository){ <br>
+    this.repository = repository; <br>
+  } <br>
+  이렇게 생성자가 1개일 경우에 이 부분을 대신 해주는 어노테이션임!
+  
+ ※주의할 점 <br>
+  @Autowired <br>
+  private Repository repository <br>
+  식으로 필드주입은 지양해야한다.
+</p>
+<p>2. 조회한 빈이 모두 필요할 때 (ex. 2가지 정책을 번갈아 써야할 때)</p>
+<p>
+  public class PublicService {
+  
+    private final Map<String, Policy> policyMap;
+    private final List<Policy> polices;
+  
+    public PublicService(Map<String, Policy> policyMap, List<Policy> policies) { 
+      this.policyMap = policyMap;
+      this.policies = policies;
+    }
+  
+    // bean이름으로 가져올 수 있게 메서드 만듦
+    public int discount(String discountCode){
+      Policy discountPolicy = policyMap.get(discountCode);
+      return discountPolicy.discount(...)
+    }
+  
+  }
+</p>
+<p>
+※주의할 점 <br>
+등록된 빈이 여러개 일때 <br>
+private final Policy policy; <br>
+이렇게 하나만 받도록 해버리면 <br>
+NoUniqueBeanDefinitionException 오류 발생 <br>
+-> 위 처럼 처리하거나 @Qualifier, @Primary 어노테이션 
+</p>
+
+
+
 <h3 style="font-weight:bold;">@PathVariable</h3>
