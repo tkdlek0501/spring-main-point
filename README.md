@@ -21,8 +21,8 @@
 <h3 style="font-weight:bold;">의존성(의존관계) 주입 방법 (최신 ver)</h3>
 <p>1. 롬복 이용한 방법</p>
 <p>
-@Component (이 어노테이션을 포함한 어노테이션 ex. @Controller 등도)
-@RequiredArgsConstructor
+@Component (이 어노테이션을 포함한 어노테이션 ex. @Controller 등도) <br>
+@RequiredArgsConstructor <br>
 public class serviceImpl implements Service {
   
   private final Repository repository;
