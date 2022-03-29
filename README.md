@@ -71,6 +71,18 @@ NoUniqueBeanDefinitionException 오류 발생 <br>
 -> 위 처럼 처리하거나 @Qualifier, @Primary 어노테이션 
 </p>
 
-
-
-<h3 style="font-weight:bold;">@PathVariable</h3>
+<h3 style="font-weight:bold;">스프링 MVC 공통 데이터 처리</h3>
+<p>
+    @ModelAttribute 의 다른 기능 <br>
+    @ModelAttribute("types") <br>
+    public Type[] types(){ <br>
+      return Type.values(); <br>
+    } <br>
+(Type : ENUM) <br>
+  이렇게 추가해주면 이 컨트롤러의 Model 객체에는 항상 types가 담겨있게 된다.<br>
+-> 정말 자주 사용되는 상수 등의 data는 이렇게 처리하자 <br>
+(Map이나 LIst등의 타입도 가능한데 객체를 생성해야 돼서 이런식으로 쓰면 비효율 -> 따로 static으로 만들어놓고 가져오는게 낫다.) <br>
+</p>  
+  
+  
+<h3 style="font-weight:bold;">@PathVariable</h3>  
