@@ -33,7 +33,7 @@ public class serviceImpl implements Service {
   public serviceImpl(Repository repository){ <br>
     this.repository = repository; <br>
   } <br>
-  이렇게 생성자가 1개일 경우에 이 부분을 대신 해주는 어노테이션임!
+  이렇게 생성자가 1개일 경우에 이 부분을 대신 해주는 어노테이션 (final키워드를 사용한 인스턴스들만 Bean 객체로 등록)
   
  ※주의할 점 <br>
   @Autowired <br>
