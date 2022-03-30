@@ -14,11 +14,9 @@
  ※주의할 점
   local에서 작업 시에는 trace 나 debug 레벨까지 볼 수 있게 설정하되, 실서버에서는 info 레벨로 설정해야 한다.
   (application.properties 에서 'logging.level.패키지=레벨' 로 설정 가능)
-  <br>
-  System.out 으로 확인하지 말자. log 또한 사용법이 어렵지 않고 설정 시 콘솔뿐만 아니라 파일로도 남길 수 있다. 
 </p>
 
-<h3 style="font-weight:bold;">의존성(의존관계) 주입 방법 (최신 ver)</h3>
+<h3 style="font-weight:bold;">의존성(의존관계) 주입 방법</h3>
 <p>1. 롬복 이용한 방법</p>
 <p>
 @Component (이 어노테이션을 포함한 어노테이션 ex. @Controller 등도) <br>
@@ -80,9 +78,16 @@ NoUniqueBeanDefinitionException 오류 발생 <br>
     } <br>
 (Type : ENUM) <br>
   이렇게 추가해주면 이 컨트롤러의 Model 객체에는 항상 types가 담겨있게 된다.<br>
--> 정말 자주 사용되는 상수 등의 data는 이렇게 처리하자 <br>
-(Map이나 LIst등의 타입도 가능한데 객체를 생성해야 돼서 이런식으로 쓰면 비효율 -> 따로 static으로 만들어놓고 가져오는게 낫다.) <br>
+-> 정말 자주 사용되는 상수 등의 data는 이렇게 처리하자. <br>
+(Map이나 LIst등의 타입도 가능한데 객체를 생성해야 돼서 이런식으로 쓰면 비효율 <br>
+-> 따로 static으로 만들어놓고 가져오는게 낫다.) <br>
 </p>  
-  
-  
+
+<h3 style="font-weight:bold;">Spring에서 지원하는 Validation</h3>   
+<p>
+    BindingResult(or Error 인터페이스) 을 사용하는 방법, <br>
+    view에서 검증 결과를 th:error 로 사용가능하게 된다. <br>
+    -> https://github.com/tkdlek0501/Spring-mvc-training-summary <br>
+    에서 ProductController와 templates/advanced/addForm 확인 <br>
+</p>  
 <h3 style="font-weight:bold;">@PathVariable</h3>  
