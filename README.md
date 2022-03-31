@@ -85,9 +85,9 @@ NoUniqueBeanDefinitionException 오류 발생 <br>
 
 <h3 style="font-weight:bold;">Spring에서 지원하는 Validation</h3>   
 <p>
-    BindingResult(or Error 인터페이스) 을 사용하는 방법, <br>
-    view에서 검증 결과를 th:error 로 사용가능하게 된다. <br>
+    BindingResult(or Error 인터페이스), validation 관련 어노테이션 사용법<br>
+    view에서 검증 결과를 th:error 로 사용 가능 <br>
     -> https://github.com/tkdlek0501/Spring-mvc-training-summary <br>
-    에서 ProductController와 templates/advanced/addForm 확인 <br>
+    에서 validation 패키지 확인 <br>
 </p>  
 <h3 style="font-weight:bold;">@PathVariable</h3>  
