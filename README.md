@@ -115,4 +115,5 @@ NoUniqueBeanDefinitionException 오류 발생 <br>
     자세히 : https://github.com/tkdlek0501/Spring-mvc-training-summary <br>
     에서 validation 패키지 확인 <br>
 </p>  
+<h3 style="font-weight:bold;">message 사용 방법</h3>  	
 <h3 style="font-weight:bold;">@PathVariable</h3>  
