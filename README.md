@@ -85,9 +85,34 @@ NoUniqueBeanDefinitionException 오류 발생 <br>
 
 <h3 style="font-weight:bold;">Spring에서 지원하는 Validation</h3>   
 <p>
-    BindingResult(or Error 인터페이스), validation 관련 어노테이션 사용법<br>
-    view에서 검증 결과를 th:error 로 사용 가능 <br>
-    -> https://github.com/tkdlek0501/Spring-mvc-training-summary <br>
+    1. 컨트롤러의 메서드에서 매개변수로 객체 받아올 때 @ModelAttribute 사용시 <br>
+    ex. @Validated @ModelAtrribute("product") Product product <br>
+    로 @Validated 어노테이션 추가 -> 검증 관련 지원 <br>
+    <br>
+    2. 검증을 해당 @ModelAttribute 로 받은 객체에 어노테이션을 이용해서 추가 <br>
+    ex. Product 클래스에서 <br>
+    @NotBlank <br>
+    private int field <br>
+    ※ 각 필드 검증은 위처럼 하되, 객체 이상 단위로 검증시에는 직접 BindingResult에 Error 추가하는 것이 유연하게 사용가능 <br>
+    ex. <br>
+    if(조건) { <br>
+				bindingResult.reject(code, args, defaultMessage); <br>
+		} <br>
+    <br>
+    3. 에러가 있을 때 처리 로직 <br>
+    if(bindingResult.hasErrors()){ <br>
+      여기서 처리 <br>
+    } <br>
+    <br>
+    4. view 템플릿에서 errors 사용하는 방법 (model에 안담아도 됨) <br>
+    1) form 태그 th:object="${product}" 에 @ModelAttribute 이름과 맞추고 <br>
+    2) th:errors="*{productName}" 를 통해 해당 필드 오류가 있을 때 오류메시지 출력 <br>
+    3) 글로벌 오류 처리는 <br>
+     &lt;div th:if="${#fields.hasGlobalErrors()}"&gt; <br>
+ 		  &lt;p th:each="err : ${#fields.globalErrors()}" th:text="${err}">글로벌 오류 메시지&lt;/p&gt; <br>
+     &lt;/div&gt; <br>
+     <br>
+    자세히 : https://github.com/tkdlek0501/Spring-mvc-training-summary <br>
     에서 validation 패키지 확인 <br>
 </p>  
 <h3 style="font-weight:bold;">@PathVariable</h3>  
