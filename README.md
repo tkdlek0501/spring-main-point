@@ -117,3 +117,4 @@ NoUniqueBeanDefinitionException 오류 발생 <br>
 </p>  
 <h3 style="font-weight:bold;">message 사용 방법</h3>  	
 <h3 style="font-weight:bold;">@PathVariable</h3>  
+<h3 style="font-weight:bold;">@SessionAttribute</h3>  	
