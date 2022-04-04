@@ -114,7 +114,9 @@ NoUniqueBeanDefinitionException 오류 발생 <br>
      <br>
     자세히 : https://github.com/tkdlek0501/Spring-mvc-training-summary <br>
     에서 validation 패키지 확인 <br>
-</p>  
+</p>
+<h3 style="font-weight:bold;">인터셉터 구현 및 등록</h3>
+<h3 style="font-weight:bold;">에러페이지 설정</h3>
 <h3 style="font-weight:bold;">message 사용 방법</h3>  	
 <h3 style="font-weight:bold;">@PathVariable</h3>  
 <h3 style="font-weight:bold;">@SessionAttribute</h3>  	
