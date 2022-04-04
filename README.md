@@ -116,7 +116,38 @@ NoUniqueBeanDefinitionException 오류 발생 <br>
     에서 validation 패키지 확인 <br>
 </p>
 <h3 style="font-weight:bold;">인터셉터 구현 및 등록</h3>
+: 로그인 했는지 안했는지 등 구분을 위한 인터셉터 <br>
+1. HandlerInterceptor 를 상속받은 클래스를 만든다. <br>
+2. preHandle 메서드를 오버라이드해서 구현해준다. (handler 호출 전 인터셉트 로직) <br>
+ex) <br>
+public class myInterceptor implements HandlerInterceptor { <br>	
+@Override <br>
+public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException { <br>
+
+	HttpSession session = request.getSession();
+	if(session == null || session.getAttribute(...) == null){
+		response.sendRedirect("/");
+		return false;
+	}
+	return true;	
+}
+3. WebMvcConfigurer을 상속받은 WebConfig 에 addInterceptors 구현 (인터셉터 등록) <br>
+ex) <br>
+@Override <br>
+public void addInterceptors(InterceptorRegistry registry){ <br>
+	registry.addInterceptor(new myInterceptor()) <br>
+	.order(1) <br>
+	.addPathPatterns("/**") <br>
+	.excludePathPatterns("/login", "...", ...); <br>
+} <br>
+	
 <h3 style="font-weight:bold;">에러페이지 설정</h3>
+1) 뷰 템플릿 <br>
+'templates/error/' 경로에 4xx.html 등의 HTTP 상태코드 이름으로 html 파일 추가 <br>
+2) 정적 리소스 <br>
+'static/error/' 경로에 위와 같이 파일 추가 <br>
+3) 적용 대상 없으면 'templates/error.html' 이 기본 오류 페이지 <br>
+	
 <h3 style="font-weight:bold;">message 사용 방법</h3>  	
 <h3 style="font-weight:bold;">@PathVariable</h3>  
 <h3 style="font-weight:bold;">@SessionAttribute</h3>  	
