@@ -120,7 +120,7 @@ NoUniqueBeanDefinitionException 오류 발생 <br>
 1. HandlerInterceptor 를 상속받은 클래스를 만든다. <br>
 2. preHandle 메서드를 오버라이드해서 구현해준다. (handler 호출 전 인터셉트 로직) <br>
 ex) <br>
-public class myInterceptor implements HandlerInterceptor { <br>	
+public class MyInterceptor implements HandlerInterceptor { <br>	
 @Override <br>
 public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException { <br>
 
@@ -135,7 +135,7 @@ public boolean preHandle(HttpServletRequest request, HttpServletResponse respons
 ex) <br>
 @Override <br>
 public void addInterceptors(InterceptorRegistry registry){ <br>
-	registry.addInterceptor(new myInterceptor()) <br>
+	registry.addInterceptor(new MyInterceptor()) <br>
 	.order(1) <br>
 	.addPathPatterns("/**") <br>
 	.excludePathPatterns("/login", "...", ...); <br>
