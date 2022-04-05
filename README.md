@@ -147,6 +147,9 @@ public void addInterceptors(InterceptorRegistry registry){ <br>
 2) 정적 리소스 <br>
 'static/error/' 경로에 위와 같이 파일 추가 <br>
 3) 적용 대상 없으면 'templates/error.html' 이 기본 오류 페이지 <br>
+
+<h3 style="font-weight:bold;">API 설계 (ResponseBody 사용법)</h3> 
+<a href="https://github.com/tkdlek0501/Spring-mvc1-part2-summary/blob/main/src/main/java/hello/springmvc/basic/response/ResponseBodyController.java">MVC 기본 기능 - responseBody</a> 	
 	
 <h3 style="font-weight:bold;">message 사용 방법</h3>  	
 <h3 style="font-weight:bold;">@PathVariable</h3>  
