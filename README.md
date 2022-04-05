@@ -150,6 +150,21 @@ public void addInterceptors(InterceptorRegistry registry){ <br>
 
 <h3 style="font-weight:bold;">API 설계 (ResponseBody 사용법)</h3> 
 <a href="https://github.com/tkdlek0501/Spring-mvc1-part2-summary/blob/main/src/main/java/hello/springmvc/basic/response/ResponseBodyController.java">MVC 기본 기능 - responseBody</a> 	
+
+<h3 style="font-weight:bold;">API 예외 처리 (@RestControllerAdvice, @ExceptionHandler)</h3>  	
+@RestControllerAdvice(annotation = RestController.class) // @RestController가 붙는 컨트롤러만 적용. 이 부분을 특정 패키지 or 컨트롤러로 설정해도 됨 (생략시 모든 컨트롤러에 적용)<br> 
+public class ExControllerAdvice {
+
+	@ResponseStatus(HttpStatus.BAD_REQUEST)	
+	@ExceptionHandler(IllegalArgumentException.class)
+	public ErrorResult illegalExHandler(IllegalArgumentException e){
+		return new ErrorResult("...", e.getMessage());
+	}	
+}	
+	
+	
+	
+	
 	
 <h3 style="font-weight:bold;">message 사용 방법</h3>  	
 <h3 style="font-weight:bold;">@PathVariable</h3>  
