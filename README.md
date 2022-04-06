@@ -186,6 +186,7 @@ conversionService.addFormatter(new ...Converter()); <br>
 <p>2. 사용</p>	
 	1) 스프링 빈으로 등록시 @RequestParam, @ModelAttribute 어노테이션이 자동으로 컨버팅
 타임리프에서도 자동 컨버팅 하려면 '${{...}}' 이용하면 된다.<br>
+	<br>
 	2) convert 메서드 사용<br>	
 	ex) 숫자 형식을 문자 형식으로 변환<br>
 	conversionService.convert(1000, String.class)<br>
