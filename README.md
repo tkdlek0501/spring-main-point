@@ -130,7 +130,7 @@ public boolean preHandle(HttpServletRequest request, HttpServletResponse respons
 		return false;
 	}
 	return true;	
-}
+} <br>
 3. WebMvcConfigurer을 상속받은 WebConfig 에 addInterceptors 구현 (인터셉터 등록) <br>
 ex) <br>
 @Override <br>
@@ -162,8 +162,50 @@ public class ExControllerAdvice {
 	}	
 }	
 	
+<h3 style="font-weight:bold;">타입 컨버터</h3>	
+<p>컨버터와 포맷터 사용하는 방법</p>
+<p>1. 등록</p>	
+	1) 스프링 빈으로 등록</br>
+ex) WebConfig에서 addFormatters 메서드 오버라이드<br>
+
+@Override <br>
+public void addFormatters(FormatterRegistry registry) { <br>
+	// 컨버터 등록 <br>
+	registry.addConverter(new ...Converter()); <br>
+	// 포멧터 등록 <br>
+	registry.addFormatter(new ...Formatter()); <br>
+} <br><br>
+2) 인스턴스 생성 후 addConverter 메서드로 등록</br>	
+ex)<br>
+DefaultFormattingConversionService conversionService = new DefaultFormattingConversionService(); <br>
+// 컨버터 등록 <br>
+conversionService.addConverter(new ...Converter()); <br>
+// 포멧터 등록 <br>
+conversionService.addFormatter(new ...Converter()); <br>	
+<br>
+<p>2. 사용</p>	
+	1) 스프링 빈으로 등록시 @RequestParam, @ModelAttribute 어노테이션이 자동으로 컨버팅
+타임리프에서도 자동 컨버팅 하려면 '${{...}}' 이용하면 된다.<br>
+	2) convert 메서드 사용<br>	
+	ex) 숫자 형식을 문자 형식으로 변환<br>
+	conversionService.convert(1000, String.class)<br>
+<br>
+<p>3. 스프링이 제공하는 기본 포맷터</p>	
+@NumberFormat : 숫자 관련 형식 지정 <br>
+@DateTimeFormat : 날짜 관련 형식 지정 <br>
+ex) <br>
+@Data <br>
+	public class Dto { <br>
+		@NumberFormat(pattern = "###,###") <br>
+		private Integer number; <br>
+		@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") <br>
+		private LocalDateTime localDateTime; <br>
+	} <br>
+<p>주의: 타입 컨버팅은 @RequestParam, @ModelAttribute 등에서 자동으로 등록된 컨버터로 처리해준다.</p>	
+<br>	
 	
-	
+<p>자세히: https://github.com/tkdlek0501/Spring-mvc-training-summary/tree/main/src/main/java/hello/itemservice/converter</p>
+
 	
 	
 <h3 style="font-weight:bold;">message 사용 방법</h3>  	
