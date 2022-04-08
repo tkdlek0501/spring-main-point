@@ -218,3 +218,6 @@ https://github.com/tkdlek0501/Spring-mvc-training-summary/blob/main/src/main/jav
 <h3 style="font-weight:bold;">message 사용 방법</h3>  	
 <h3 style="font-weight:bold;">@PathVariable</h3>  
 <h3 style="font-weight:bold;">@SessionAttribute</h3>  	
+	
+<h3 style="font-weight:bold;">스프링은 아니지만 자바 Stream</h3>  	
+https://futurecreator.github.io/2018/08/26/java-8-streams/ <br>	
